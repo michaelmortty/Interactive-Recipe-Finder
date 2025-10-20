@@ -1,5 +1,4 @@
-const recipes = [
-  {
+const recipes = [   {
     id: 1,
     name: "Waakye (Ghanaian Rice and Beans)",
     ingredients: [
@@ -141,57 +140,50 @@ const recipes = [
   },
 ];
 
-const recipeList = document.getElementById("recipe-list");
-const recipeDetail = document.getElementById("recipe-detail");
-const searchInput = document.getElementById("search-input");
+const featuredImage = document.getElementById("featured-image");
+const recipeInfo = document.getElementById("recipe-info");
+const searchInput = document.getElementById("recipe-input");
+const recipeForm = document.getElementById("recipe-form");
 
-s
-function displayRecipes(data) {
-  recipeList.innerHTML = "";
-  data.forEach(recipe => {
-    const card = document.createElement("article");
-    card.classList.add("recipe-card");
-    card.innerHTML = `
-      <figure>
-        <img src="${recipe.imageURL}" alt="${recipe.name}" />
-        <figcaption><h2>${recipe.name}</h2></figcaption>
-      </figure>
-    `;
-    card.addEventListener("click", () => showRecipeDetail(recipe.id));
-    recipeList.appendChild(card);
-  });
-}
+function displayRecipe(recipe) {
+  if (!recipe) {
+    recipeInfo.innerHTML = `<h2>No recipe found.</h2>`;
+    featuredImage.src = "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=500&q=80";
+    featuredImage.alt = "Featured Food";
+    return;
+  }
 
+  featuredImage.src = recipe.imageURL;
+  featuredImage.alt = recipe.name;
 
-function showRecipeDetail(id) {
-  const recipe = recipes.find(r => r.id === id);
-  recipeList.classList.add("hidden");
-  recipeDetail.classList.remove("hidden");
-  recipeDetail.innerHTML = `
+  recipeInfo.innerHTML = `
     <h2>${recipe.name}</h2>
-    <img src="${recipe.imageURL}" alt="${recipe.name}" />
     <h3>Ingredients</h3>
-    <ul>${recipe.ingredients.map(i => `<li>${i}</li>`).join("")}</ul>
+    <ul>${recipe.ingredients.map(i => `<li>${i}</li>`).join('')}</ul>
     <h3>Instructions</h3>
-    <ol>${recipe.instructions.map(i => `<li>${i}</li>`).join("")}</ol>
-    <button id="back-btn">Back to Recipes</button>
+    <ol>${recipe.instructions.map(i => `<li>${i}</li>`).join('')}</ol>
   `;
-  document.getElementById("back-btn").addEventListener("click", goBack);
 }
 
-function goBack() {
-  recipeDetail.classList.add("hidden");
-  recipeList.classList.remove("hidden");
-}
-
-
-searchInput.addEventListener("input", (e) => {
-  const term = e.target.value.toLowerCase();
-  const filtered = recipes.filter(r =>
-    r.name.toLowerCase().includes(term) ||
-    r.ingredients.some(i => i.toLowerCase().includes(term))
-  );
-  displayRecipes(filtered);
+// Show first recipe by default on page load
+window.addEventListener("DOMContentLoaded", () => {
+  displayRecipe(recipes[0]);
 });
 
-window.addEventListener("DOMContentLoaded", () => displayRecipes(recipes));
+recipeForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const term = searchInput.value.trim().toLowerCase();
+
+  if (term === "") {
+    displayRecipe(recipes[0]);
+    return;
+  }
+
+  // Find recipe matching search term (by name or ingredient)
+  const found = recipes.find(recipe =>
+    recipe.name.toLowerCase().includes(term) ||
+    recipe.ingredients.some(i => i.toLowerCase().includes(term))
+  );
+
+  displayRecipe(found);
+});

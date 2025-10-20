@@ -3,45 +3,45 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zorayda - Recipe Finder</title>
+  <title>GH Foods - Recipe Finder</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header>
-    <div class="logo">Zorayda</div>
+    <div class="logo">GH Foods - Recipe Finder</div>
     <div class="social-icons">
-      <a href="#" aria-label="Instagram"><img src="instagram-icon.svg" alt="Instagram" /></a>
-      <a href="#" aria-label="Twitter"><img src="twitter-icon.svg" alt="Twitter" /></a>
+      <a href="https://www.instagram.com/" aria-label="Instagram"><img src="/img/10462345.png" alt="Instagram" class="instagram"/></a>
+      <a href="https://www.youtube.com" aria-label="Youtube"><img src="/img/social-media-logo-design.png" alt="Youtube" class="youtube"/></a>
     </div>
   </header>
 
   <main>
     <div class="left-panel">
-      <div id="display-area">
-        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=500&q=80" alt="Featured Food" id="featured-image" />
-        <div id="recipe-info" class="hidden">
-          <!-- Ingredients and process will show here -->
-        </div>
-      </div>
+      <img
+        src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=500&q=80"
+        alt="Featured Food"
+        id="featured-image"
+      />
     </div>
 
     <div class="right-panel">
-      <h1>Opening soon.</h1>
-      <p>Our flagship location is opening this fall. Sign up with your email address to get notified.</p>
-      
+      <h1>WELCOME</h1>
+      <p>These are our takes on famous Ghanaian dishes.Search the one that you want to make and give it a shot.</p>
+
       <form id="recipe-form">
         <input type="text" id="recipe-input" placeholder="Search food recipes..." />
-        <button type="submit">Sign Up</button>
+        <button type="submit">Search</button>
       </form>
+
+      <!-- Moved recipe info here -->
+      <div id="recipe-info" class="hidden">
+        <!-- Ingredients and process will show here -->
+      </div>
 
       <div class="contact-info">
         <div>
-          <h3>Location</h3>
-          <p>123 Demo Street<br />New York, NY 12345</p>
-        </div>
-        <div>
           <h3>Contact</h3>
-          <p>email@example.com<br />(555) 555-5555</p>
+          <p>ghfoods@gmail.com<br />(+233) 25-774-3336</p>
         </div>
       </div>
     </div>
