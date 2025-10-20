@@ -3,31 +3,52 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Interactive Recipe Finder</title>
+  <title>Zorayda - Recipe Finder</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header>
-    <h1>Interactive Recipe Finder</h1>
-    <nav>
-      <form id="search-form">
-        <input type="text" id="search-input" placeholder="Search recipes or ingredients..." />
-      </form>
-    </nav>
+    <div class="logo">Zorayda</div>
+    <div class="social-icons">
+      <a href="#" aria-label="Instagram"><img src="instagram-icon.svg" alt="Instagram" /></a>
+      <a href="#" aria-label="Twitter"><img src="twitter-icon.svg" alt="Twitter" /></a>
+    </div>
   </header>
 
-  <main id="main-content">
-    <section id="recipe-list" class="recipe-grid">
-      <!-- Recipes dynamically rendered here -->
-    </section>
+  <main>
+    <div class="left-panel">
+      <div id="display-area">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=500&q=80" alt="Featured Food" id="featured-image" />
+        <div id="recipe-info" class="hidden">
+          <!-- Ingredients and process will show here -->
+        </div>
+      </div>
+    </div>
 
-    <section id="recipe-detail" class="hidden">
-      <!-- Detailed view dynamically rendered here -->
-    </section>
+    <div class="right-panel">
+      <h1>Opening soon.</h1>
+      <p>Our flagship location is opening this fall. Sign up with your email address to get notified.</p>
+      
+      <form id="recipe-form">
+        <input type="text" id="recipe-input" placeholder="Search food recipes..." />
+        <button type="submit">Sign Up</button>
+      </form>
+
+      <div class="contact-info">
+        <div>
+          <h3>Location</h3>
+          <p>123 Demo Street<br />New York, NY 12345</p>
+        </div>
+        <div>
+          <h3>Contact</h3>
+          <p>email@example.com<br />(555) 555-5555</p>
+        </div>
+      </div>
+    </div>
   </main>
 
   <footer>
-    <p>© 2025 Interactive Recipe Finder | Built by Roddy, Achilles and Mortty </p>
+    <p>© 2025 Interactive Recipe Finder | Built by Roddy, Achilles and Mortty</p>
   </footer>
 
   <script src="script.js"></script>
