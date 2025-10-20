@@ -1,11 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Recipe Finder</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    
+  <header>
+    <h1>Interactive Recipe Finder</h1>
+    <nav>
+      <form id="search-form">
+        <input type="text" id="search-input" placeholder="Search recipes or ingredients..." />
+      </form>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section id="recipe-list" class="recipe-grid">
+      <!-- Recipes dynamically rendered here -->
+    </section>
+
+    <section id="recipe-detail" class="hidden">
+      <!-- Detailed view dynamically rendered here -->
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Interactive Recipe Finder | Built by Roddy, Achilles and Mortty </p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
